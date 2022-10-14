@@ -1,0 +1,58 @@
+Questions:
+
+1. Find the records of all the students who have submitted their assignment.
+   db.assignment.find({"submission":1}).pretty()
+2. Assign grade C to those students who have not submitted their assignments.
+   db.assignment.updateMany({"submission":0},{$set: {"Grade":"C"}})
+3. Assign grade A to those students who have submitted their assignment.
+   db.assignment.updateMany({"submission":1},{$set: {"Grade":"A"}})
+4. Insert a document with id as 812, name as “Rick”, email as e@e.com, submission as 1 and grade as N.A.
+   db.assignment.insertOne({"ID":812,"Email":"e@e.com","Name":"Rick","submission":1,"Grade":"NA"})
+5. Update department of Sam as “MECHANICAL”.
+   db.assignment.update({"Name":"Sam"},{$set: {"Department":"MECHANICAL"}})
+
+#Result
+{
+"\_id" : ObjectId("63494da88235ff16b6d57bad"),
+"ID" : 101,
+"Email" : "a@a.com",
+"Name" : "Alex",
+"Department" : "CSE",
+"submission" : 1,
+"Grade" : "A"
+}
+{
+"\_id" : ObjectId("63494fd6463a0ad6b66f0bb2"),
+"ID" : 203,
+"Email" : "b@a.com",
+"Name" : "John",
+"Department" : "CIVIL",
+"submission" : 0,
+"Grade" : "C"
+}
+{
+"\_id" : ObjectId("63494fd6463a0ad6b66f0bb3"),
+"ID" : 305,
+"Email" : "c@c.com",
+"Name" : "Sam",
+"Department" : "MECHANICAL",
+"submission" : 0,
+"Grade" : "C"
+}
+{
+"\_id" : ObjectId("63494fd6463a0ad6b66f0bb4"),
+"ID" : 719,
+"Email" : "d@d.com",
+"Name" : "Rob",
+"Department" : "ELECTRONICS",
+"submission" : 1,
+"Grade" : "A"
+}
+{
+"\_id" : ObjectId("6349512f463a0ad6b66f0bb5"),
+"ID" : 812,
+"Email" : "e@e.com",
+"Name" : "Rick",
+"submission" : 1,
+"Grade" : "NA"
+}
